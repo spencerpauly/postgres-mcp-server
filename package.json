@@ -1,0 +1,35 @@
+{
+  "name": "postgres-mcp-server",
+  "version": "1.0.0",
+  "description": "A secure, self-hostable Model Context Protocol server for PostgreSQL.",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "eval": "vitest run evals/"
+  },
+  "keywords": [
+    "mcp",
+    "postgresql",
+    "postgres",
+    "model-context-protocol",
+    "ai"
+  ],
+  "author": "QueryBear",
+  "license": "MIT",
+  "packageManager": "pnpm@10.33.2",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.8.0",
+    "@types/pg": "^8.20.0",
+    "tsx": "^4.22.1",
+    "typescript": "^6.0.3",
+    "vitest": "^2.1.9"
+  }
+}
