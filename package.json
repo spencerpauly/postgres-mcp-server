@@ -1,7 +1,8 @@
 {
   "name": "@querybear/postgres-mcp-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A secure, self-hostable Model Context Protocol server for PostgreSQL.",
+  "mcpName": "io.github.spencerpauly/postgres-mcp-server",
   "main": "dist/index.js",
   "type": "module",
   "bin": {
