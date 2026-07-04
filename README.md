@@ -49,21 +49,13 @@ Connect Claude, Cursor, or any MCP-compatible AI assistant directly to your Post
 
 ## Quick Start
 
+No install needed — run it straight from npm with `npx`:
+
 ```bash
-# 1. Clone
-git clone https://github.com/spencerpauly/postgres-mcp-server.git
-cd postgres-mcp-server
-
-# 2. Configure
-cp .env.example .env
-# Edit .env and set DATABASE_URL
-
-# 3. Install and run
-pnpm install
-pnpm dev
+npx @querybear/postgres-mcp-server
 ```
 
-The server communicates over stdio and is ready to be wired into Claude Desktop or any other MCP host.
+Point it at a database with the `DATABASE_URL` environment variable. The server communicates over stdio and is ready to be wired into Claude Desktop, Cursor, Windsurf, Zed, or any other MCP host.
 
 ---
 
@@ -75,8 +67,8 @@ Add the following to your `claude_desktop_config.json` (typically at `~/Library/
 {
   "mcpServers": {
     "postgres": {
-      "command": "node",
-      "args": ["/absolute/path/to/postgres-mcp-server/dist/index.js"],
+      "command": "npx",
+      "args": ["@querybear/postgres-mcp-server"],
       "env": {
         "DATABASE_URL": "postgresql://user:password@localhost:5432/mydb",
         "MAX_ROWS": "500",
@@ -88,20 +80,14 @@ Add the following to your `claude_desktop_config.json` (typically at `~/Library/
 }
 ```
 
-Or with `tsx` for development (no build step):
+### Run from source (for development)
 
-```json
-{
-  "mcpServers": {
-    "postgres": {
-      "command": "npx",
-      "args": ["tsx", "/absolute/path/to/postgres-mcp-server/src/index.ts"],
-      "env": {
-        "DATABASE_URL": "postgresql://user:password@localhost:5432/mydb"
-      }
-    }
-  }
-}
+```bash
+git clone https://github.com/spencerpauly/postgres-mcp-server.git
+cd postgres-mcp-server
+cp .env.example .env   # then set DATABASE_URL
+pnpm install
+pnpm dev
 ```
 
 ---

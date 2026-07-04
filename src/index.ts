@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * postgres-mcp-server
  *
@@ -65,7 +66,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     switch (name) {
       case "query":
         return await queryTool.handler(
-          args as queryTool.QueryArgs,
+          (args ?? {}) as unknown as queryTool.QueryArgs,
           pool
         );
 
@@ -77,7 +78,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case "describe_table":
         return await describeTableTool.handler(
-          args as describeTableTool.DescribeTableArgs,
+          (args ?? {}) as unknown as describeTableTool.DescribeTableArgs,
           pool
         );
 

@@ -1,15 +1,38 @@
 {
-  "name": "postgres-mcp-server",
+  "name": "@querybear/postgres-mcp-server",
   "version": "1.0.0",
   "description": "A secure, self-hostable Model Context Protocol server for PostgreSQL.",
   "main": "dist/index.js",
   "type": "module",
+  "bin": {
+    "postgres-mcp-server": "dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
     "test": "vitest run",
-    "eval": "vitest run evals/"
+    "eval": "vitest run evals/",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencerpauly/postgres-mcp-server.git"
+  },
+  "homepage": "https://postgresmcpserver.com",
+  "bugs": {
+    "url": "https://github.com/spencerpauly/postgres-mcp-server/issues"
   },
   "keywords": [
     "mcp",
